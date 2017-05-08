@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="ylApp"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="ylApp"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" data-ng-app="ylApp">
+<head>
+    <title data-ng-bind="$state.current.data.pageTitle"></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="代码生成助手" name="description" />
+    <meta content="zcooool" name="author" />
+    <!--<link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />-->
+    <link href="lib/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/plugins/bootstrap1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link id="ng_load_plugins_before" />
+
+    <link href="lib/css/components-md.min.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="lib/css/plugins-md.css" rel="stylesheet" type="text/css" />
+
+    <link href="lib/css/layout/layout.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="lib/css/layout/themes/grey.css" rel="stylesheet" />
+
+    <link href="system/customs/css/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body ng-controller="AppController" class="  page-header-fixed page-footer-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed,'page-no-scroll':settings.layout.pageNoScoll}" >
+<!-- BEGIN PAGE SPINNER -->
+    <div ng-spinner-bar class="page-spinner-bar">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <div data-ng-include="'./system/tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top"> </div>
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div data-ng-include="'./system/tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+        <!-- END SIDEBAR -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                <!--<div data-ng-include="'./system/tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>-->
+                <!-- END STYLE CUSTOMIZER -->
+                <!-- BEGIN ACTUAL CONTENT -->
+                <div ui-view class="fade-in-up"> </div>
+                <!-- END ACTUAL CONTENT -->
+            </div>
+        </div>
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!--<a href="javascript:;" class="page-quick-sidebar-toggler">-->
+            <!--<i class="icon-login"></i>-->
+        <!--</a>-->
+        <!--<div data-ng-include="'./system/tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>-->
+        <!-- END QUICK SIDEBAR -->
+    </div>
+    <!-- BEGIN FOOTER -->
+    <div data-ng-include="'./system/tpl/footer.html'" data-ng-controller="FooterController" class="page-footer"> </div>
+    <!-- END FOOTER -->
+
+
+
+
+
+<!--[if lt IE 9]>
+<script src="lib/plugins/respond.min.js"></script>
+<script src="lib/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script src="lib/plugins/jquery.min.js" type="text/javascript"></script>
+<script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
+<script src="lib/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="lib/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="lib/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="lib/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="lib/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="lib/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+
+<script src="lib/plugins/angularjs/angular.min.js" type="text/javascript"></script>
+<script src="lib/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>
+<script src="lib/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>
+<script src="lib/plugins/angularjs/plugins/angular-ui-router.min.js" type="text/javascript"></script>
+<script src="lib/plugins/angularjs/plugins/ocLazyLoad.min.js" type="text/javascript"></script>
+<script src="lib/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+
+<script src="./public/bundle.js" type="text/javascript"></script>
+
+<script src="system/customs/script/app.min.js" type="text/javascript"></script>
+<script src="system/customs/script/layout.min.js" type="text/javascript"></script>
+<script src="system/customs/script/quick-sidebar.min.js" type="text/javascript"></script>
+<script src="system/customs/script/core.js"></script>
+
+</body>
+</html>

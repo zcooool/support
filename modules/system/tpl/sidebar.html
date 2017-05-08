@@ -1,0 +1,60 @@
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-header-fixed page-sidebar-menu sidebar-menu-hover-submenu page-sidebar-menu-compact " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="start">
+            <a href="#/dashboard">
+                <i class="icon-home"></i>
+                <span class="title">系统配置</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-settings"></i>
+                <span class="title">代码示例</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <!--GeneralPageController.js-->
+                <li>
+                    <a href="#/bootstrap">
+                        <i class="icon-puzzle"></i>bootstrap</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/example/jqgrid">
+                        <i class="icon-puzzle"></i>jqgrid</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/example/jqgrid">
+                        <i class="icon-puzzle"></i>eChats</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-settings"></i>
+                <span class="title">代码生成器</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#/generator/jqgridgen">
+                        <i class="icon-puzzle"></i>jqGrid</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+
+</div>
