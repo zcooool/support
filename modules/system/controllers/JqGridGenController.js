@@ -1,7 +1,49 @@
 angular.module('ylApp').controller('JqGridGenController', function($rootScope, $scope, $http, $timeout) {
+
+
+
+
+    const {remote} = require('electron');
+    const NEDB = remote.require('nedb')
+    const db = {};
+    const mysql = remote.require('mysql');
+    const {dbconfig} = remote.getGlobal('configpath');
+    db.dbconfig = new NEDB({filename:dbconfig});
+    const client = mysql.createConnection({
+        user:'root',
+        password:'root',
+    })
+
+//使用的是mysql数据库
+    client.connect(function(){
+        console.log('打印成功');
+    })
+//使用nedb
+    db.dbconfig.loadDatabase();
+
+   db.dbconfig.find({},function(){
+
+
+   });
+
+
+
+    $scope.sites = [
+        {site : "Google", url : "http://www.google.com"},
+        {site : "Runoob", url : "http://www.runoob.com"},
+        {site : "Taobao", url : "http://www.taobao.com"}
+    ];
+
+
+
+    $scope.DBAddPropBtn = function(){
+        //显示第三个tab
+        $('#tabs li:eq(2) a').tab('show')
+    }
+
+
     //添加一行的事件
-
-
+    $scope.id = 1;
 
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
@@ -156,26 +198,61 @@ angular.module('ylApp').controller('JqGridGenController', function($rootScope, $
             colMenu : false
         };
 
+        $scope.mycity = '北京';
+        $scope.Cities = [{ id: 1, name: '北京' }, { id: 2, name: '上海' }, { id: 3, name: '广州' }];
+
+
 
         App.initAjax();
 
         __core.init($rootScope);
 
         initJQGrid('#customProptable');
-
+        initDBPropJqGrid();
         _handleHeight($rootScope);
-        // _hanleWidth('#customProtable');
+
+
 
 
     });
     $scope.customAddPropBtn = function(){
         console.log('点击了了customAddPropBtn');
         var target = $('#customProptable');
-        target.addRowData(1,[{}]);
-        target.editRow(1);
+        target.addRowData( $scope.id,{});
+        target.editRow( $scope.id);
+        $scope.id++;
+
+
+
+
+    }
+    $scope.customSavePropBtn = function(){
+        console.log(`${new Date().getTime()}===>点击了customSavePropBtn事件`);
+        const target = $('#customProptable');
+        for(var i = 0 ; i < $scope.id;i++){
+            target.saveRow(i+1);
+        }
 
     }
 
+    $scope.customDeleltePropBtn = function(){
+        const target = $('#customProptable');
+       var selrow =  target.jqGrid("getGridParam","selrow");
+       target.delRowData(selrow);
+    }
+    $scope.clearPropBtn = function () {
+        const target = $('#customProptable');
+        for(var i = 0 ; i < $scope.id;i++){
+            target.delRowData(i+1);
+        }
+    }
+
+    $scope.getRowDatas = function(){
+        console.log(`${new Date().getTime()}===>点击了getRowDatas事件`)
+        const target = $('#customProptable');
+
+        console.log(   target.getRowData())
+    }
 
     function _handleHeight($rootScope){
         if(!$rootScope){return;}
@@ -202,23 +279,28 @@ angular.module('ylApp').controller('JqGridGenController', function($rootScope, $
             dataType:'local',
             styleUI:'Bootstrap',
             colModel:[
-                {name:'id',index:'id',label:'数据库映射',sortable:false,align:'center',editable :true},
+                {name:'db',index:'db',label:'数据库',sortable:false,align:'center',editurl:true},
+                {name:'table',index:'table',label:'表名称',sortable:false,align:'center',editurl:true},
+                {name:'field',index:'field',label:'字段',sortable:false,align:'center',editurl:true},
+                {name:'index',index:'index',label:'数据库映射',sortable:false,align:'center',editable :true},
                 {name:'name',index:'name',align:'center',sortable:false,label:'页面映射',editable :true},  //sortable是该字段是否排序
                 {name:'width',index:'width',sortable:false,label:'宽度',align:'center',editable :true},
                 {name:'align',index:'align',sortable:false,label:'位置',align:'center',editable :true},
-                {name:'sortable',index:'sortable',sortable:false,label:'是否排序',align:'center',editable :true}  //colModel两个最主要就是
+                {name:'sortable',index:'sortable',sortable:false,label:'是否排序',align:'center',editable :false}  //colModel两个最主要就是
             ],
             viewrecords:true,
             rowNum:15,
             //autoHeight:true,
             rowList:[15,20,25,30],
+            editurl:'clientArray',
 
-            width:931,
-            autowidth:true,
+            width:925,
             rownumbers:true,
-            gridview:true,
+
+
             pager:selector+'_pager',
-            sortable:false
+            sortable:false,
+
         });
 
         $(selector)[0].addJSONData(mydata);
@@ -231,6 +313,46 @@ angular.module('ylApp').controller('JqGridGenController', function($rootScope, $
 
 
     }
+
+    //初始化jqgrid
+    function initDBPropJqGrid(){
+        let     mydata=
+             []
+        $('#DBProptable').jqGrid({
+            dataType:'local',
+            styleUI:'Bootstrap',
+            viewrecords:false,
+
+            width:925,
+            colModel:[
+
+                {name:'db',index:'db',label:'数据库',sortable:false,align:'center',editurl:true},
+                {name:'table',index:'table',label:'表名称',sortable:false,align:'center',editurl:true},
+                {name:'field',index:'field',label:'字段',sortable:false,align:'center',editurl:true},
+                {name:'index',index:'index',label:'数据库映射',sortable:false,align:'center',editable :true},
+                {name:'name',index:'name',align:'center',sortable:false,label:'页面映射',editable :true},  //sortable是该字段是否排序
+                {name:'width',index:'width',sortable:false,label:'宽度',align:'center',editable :true},
+                {name:'align',index:'align',sortable:false,label:'位置',align:'center',editable :true},
+                {name:'sortable',index:'sortable',sortable:false,label:'是否排序',align:'center',editable :false}  //colModel两个最主要就是
+            ],
+            sortable:false,
+            pager:'#DBProptable_pager',
+            sortname: 'name',
+            loadonce: true,
+            grouping:true,
+            groupingView : {
+                groupField : ['db','table'],
+                groupColumnShow : [true,true],
+                groupText:['<b>{0} - {1} Item(s)</b>']
+            }
+
+        })
+        $('#DBProptable').jqGrid('sortableRows', {
+            items : '.jqgrow:not(.unsortable)'
+        });
+        $('#DBProptable')[0].addJSONData(mydata)
+    }
+
 
 
 

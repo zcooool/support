@@ -6,25 +6,9 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
-// const mysql = require("remote").require("mysql");
-// const client =mysql.createConnection({
-//     user:'root',
-//     password:'root'
-// })
-// client.connect(function () {
-//     console.log('连接成功');
-// })
 
 
 
-// const path = require('path');
-// const Datastore = require('nedb');
-// const db = {};
-// db.dbconfig = new Datastore({filename:`${__dirname}/config/dbconfig`});
-// db.dbconfig.loadDatabase(function(err){
-//     console.log('载入失败')
-// })
-//
 global.configpath = {
     dbconfig:`${__dirname}/config/dbconfig`,
     templateUrl:`${__dirname}/templates`

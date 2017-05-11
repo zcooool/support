@@ -2,7 +2,7 @@
 <div class=" portlet light  page" >
     <div class="portlet-title">
         <div class="tabbable-line">
-        <ul class="nav nav-tabs pull-left">
+        <ul class="nav nav-tabs pull-left" id="tabs">
 
 
             <li class="active">
@@ -139,16 +139,29 @@
                             <div class="panel-body">
                                 <div class="table-toolbar">
                                     <div class="button-group">
-                                        <button class="btn btn-info"   ng-click=
+                                        <button class="btn btn-sm btn-info"  type="button" ng-click=
                                         "customAddPropBtn()">添加一行
                                             <i class="fa fa-plus"></i></button>
+                                        <button class="btn btn-sm btn-info"    type="button" ng-click=
+                                                "customSavePropBtn()">保存
+                                           </button>
+                                        <button class="btn btn-sm btn-info"  type="button"  ng-click=
+                                                "getRowDatas()">获取行数据
+                                        </button>
+                                        <button class="btn btn-sm btn-info"   type="button" ng-click=
+                                                "customDeleltePropBtn()">删除
+
+                                        </button>
+                                        <button class="btn btn-sm btn-info" type="button"  ng-click=
+                                                "clearPropBtn()">清空
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="jqGrid_wrapper">
+
 
                                 <table id="customProptable" class="table  table-striped table-bordered table-advance table-hover"></table>
                                 <div id="customProptable_pager"></div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -163,10 +176,13 @@
                             <div class="panel-body">
                                 <div class="table-toolbar">
                                     <div class="button-group">
-                                        <button class="btn btn-info"   ng-click=
-                                                "DBAddPropBtn()">添加一行</button>
+                                        <button class="btn btn-info"   ng-click="DBAddPropBtn()">带回数据</button>
                                     </div>
                                 </div>
+
+                                    <table id="DBProptable" class="table  table-striped table-bordered table-advance table-hover"></table>
+                                    <div id="DBProptable_pager"></div>
+
                             </div>
                         </div>
                     </div>
@@ -178,24 +194,30 @@
                 <div class="form-horizontal">
                     <div class="form-body " >
                         <div class="row">
+
                             <div class="col-xs-6"><div class="form-group">
-                                <label class="control-label col-xs-5">选择数据库: </label>
+                                <label class="control-label col-xs-5">选择数据库 </label>
                                 <div class="col-xs-7">
-                                    <select ng-model="db.dbname" class="form-control" ng-change="dbChange()">
-                                        <option value="">请选择</option>
+                                    <select  class="form-control" ng-options="x.site for x in sites" >
+
                                     </select>
                                 </div>
                             </div></div>
                             <div class="col-xs-6"><div class="form-group">
-                                <label class="control-label col-xs-5">选择表: </label>
+                                <label class="control-label col-xs-5">选择表 </label>
                                 <div class="col-xs-7">
-                                    <select ng-model="db.tables" class="form-control">
+                                    <select ng-model="selectedDB.tables" class="form-control">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
                             </div></div>
 
                         </div>
+                        <div class='row'>
+                            <table class='table' id='feilds_jqgrid'></table>
+                            <div class='' id='feilds_jqgrid_pager'></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
