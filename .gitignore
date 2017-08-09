@@ -2,10 +2,10 @@
 .DS_Store
 
 # dependencies
-node_modules
-
+node_modules/
+app/node_modules
 # build output
-dist
+/dist
 app/dist/main.js
 
 # logs
