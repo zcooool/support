@@ -6,7 +6,7 @@ node_modules
 
 # build output
 dist
-app/dist
+app/dist/main.js
 
 # logs
 npm-debug.log
