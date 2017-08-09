@@ -1,0 +1,16 @@
+{
+  "name": "dva-boilerplate-electron",
+  "version": "1.0.0",
+  "productName": "codegen",
+  "description": "gen code",
+  "main": "dist/main.js",
+  "author": {
+    "name": "zcooool",
+    "email": "dignmodahau0@163.com"
+  },
+  "dependencies": {
+    "electron-config": "^0.2.1",
+    "electron-is": "^2.3.0",
+    "electron-log": "^1.2.2"
+  }
+}
