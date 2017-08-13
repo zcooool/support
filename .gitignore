@@ -11,3 +11,4 @@ app/dist/main.js
 # logs
 npm-debug.log
 
+.idea/

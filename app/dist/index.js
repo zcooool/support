@@ -1,9 +1,9 @@
 //codegenApp
 var codegenApp = angular.module("codegenApp", [
     "ui.router", 
-
     "oc.lazyLoad",  
-    "ngSanitize"
+    "ngSanitize",
+
 ]); 
 
 codegenApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
@@ -36,10 +36,20 @@ codegenApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
     $stateProvider.state('dashboard', {
             url: "/dashboard.html",
             templateUrl: "../dist/views/hello.html",            
-        })
+        }) 
         .state('codegen1',{
             url:'/codegen1',
-            templateUrl: "../dist/views/codegen/simpleQuery.html"
+            templateUrl: "../dist/views/codegen/simpleQuery.html",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([ {
+                        name: 'codegenApp',
+                        files: [
+                            '../dist/controllers/codegen/SimpleQueryPageController.js'
+                        ]
+                    }]);
+                }]
+            }
         })
 
 
