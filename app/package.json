@@ -1,8 +1,8 @@
 {
-  "name": "dva-boilerplate-electron",
+  "name": "codegen",
   "version": "1.0.0",
-  "productName": "codegen",
-  "description": "gen code",
+  "productName": "gcode",
+  "description": "Yet another boilerplate for dva.",
   "main": "dist/main.js",
   "author": {
     "name": "zcooool",

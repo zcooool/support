@@ -5,7 +5,7 @@ export default function (webpackConfig) {
     externals(context, request, callback) {
       let isExternal = false;
       const load = [
-        'electron'
+        'electron',
       ];
       if (load.includes(request)) {
         isExternal = `require("${request}")`;

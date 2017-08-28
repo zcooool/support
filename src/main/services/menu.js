@@ -3,45 +3,38 @@ import log from 'electron-log';
 
 function getTemplate() {
   return [
+    
     {
-      label: 'MyApp',
+      label: '应用',
       submenu: [
-        { role: 'hide' },
-        { role: 'hideothers' },
-        { role: 'unhide' },
+        { role: 'hide' ,label:"隐藏"},
+        { role: 'hideothers' ,label:'隐藏其他'},
+        { role: 'unhide',label:'显示' },
         { type: 'separator' },
-        { role: 'quit' },
+        { role: 'quit',label:'退出'},
       ],
     },
     {
-      label: 'Edit',
-      submenu: [
-        { role: 'undo' },
-        { role: 'redo' },
-        { type: 'separator' },
-        { role: 'cut' },
-        { role: 'copy' },
-        { role: 'paste' },
-        { role: 'selectall' },
-      ],
+      label:'系统',
+      submenu:[
+        {label:'项目设置',click:(menuItem,browserWindow,event)=>{
+            
+            
+
+        }},
+        {label:'数据库设置'}
+      ]
     },
     {
-      label: 'View',
+      label: '视图',
       submenu: [
-        { role: 'reload' },
-        { role: 'toggledevtools' },
-        { type: 'separator' },
-        { role: 'togglefullscreen' },
+        { role: 'reload',label:'加载' },
+        { role: 'toggledevtools',label:'开发工具' },
+        { type: 'separator' }
       ],
-    },
-    {
-      role: 'window',
-      label: 'Window',
-      submenu: [
-        { role: 'minimize' },
-        { role: 'close' },
-      ],
-    },
+    }
+    
+
   ];
 }
 
