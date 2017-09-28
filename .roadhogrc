@@ -4,13 +4,7 @@
   "define": {
     "$dirname": "__dirname"
   },
-  "proxy": {
-    "/api": {
-      "target": "http://jsonplaceholder.typicode.com/",
-      "changeOrigin": true,
-      "pathRewrite": { "^/api" : "" }
-    }
-  },
+  
 
   "env": {
     "development": {
